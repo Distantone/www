@@ -50,6 +50,7 @@
                     <th class="text-left">Education</th>
 					<th class="text-left">Salary</th>
 					<th class="text-left">Location</th>
+					<th class="text-left">Availability</th>
                 </tr>
             </thead>
 
@@ -86,6 +87,9 @@ while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 			   <td>
                    <?php     echo $row['location']; ?>
                </td>  
+			   <td>
+                   <?php     echo $row['availability']; ?>
+               </td> 
     </tr>
 	<?php
     }
