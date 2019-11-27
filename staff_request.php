@@ -13,6 +13,7 @@
 <meta charset="utf-8">
 <title>Staffing Request Form</title>
 <link rel="stylesheet" type="text/css" href="style2.css">
+
 </head>
 <body>
 	<div class="header">

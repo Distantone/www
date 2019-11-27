@@ -38,10 +38,10 @@
 			<label>location</label>
 			<input type="text" name="location" value="<?php echo $location; ?>">
 		</div>
-		<div class="input-group">
-			<button type="submit" class="btn" name="staffinformation_btn">Submit</button>
-		</div>
+		<div>
 		
+		<button type="submit" class="btn" name="staffinformation_btn">Submit</button>
 	</form>
+	
 </body>
 </html>

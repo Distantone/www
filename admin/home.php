@@ -52,7 +52,7 @@
 						<a href="home.php?logout='1'" style="color: red;">logout</a>
 						&nbsp; <a href="create_user.php"> + add user</a>
 						&nbsp; <a href="staff_request.php"> +Request Staff</a>
-						&nbsp; <a href="Search_staff_request.php"> +Search Staff Requests</a>
+						&nbsp; <a href="view.php"> +View Staff Requests</a>
 					</small>
 
 				<?php endif ?>
