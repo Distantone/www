@@ -11,12 +11,45 @@
 <head>
 <meta charset="utf-8">
 <title>Edit Requests</title>
-<link rel="stylesheet" type="text/css" href="../style3.css">
+<link rel="stylesheet" type="text/css" href="../styletest.css">
 </head>
 <body>
-	<div class="header">
-		<h2>Edit Staff Request</h2>
-	</div>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+<ul>
+  <li><a href="/admin/home.php">Home</a></li>
+  <li><a href="view.php">Staff Request Management</a></li>
+  <li><a href="create_user.php">Create User</a></li>
+  <li style="float:right"><a class="active" href="home.php?logout='1'">LogOut</a></li>
+</ul>
+	
 <style>
 table {
   font-family: arial, sans-serif;
@@ -52,35 +85,44 @@ $status = $_GET['status'];
 
 
 <div>
-
+<h2>Edit Staff Request</h2>
 <p><label><strong>Reference Number:</strong></label> <?php echo $reference_number; ?></p>
 
 
+
+
+		
+		
+		
 	<div class="input-group">
-		<label><strong>Customer Name: *</strong></label> 
-		<input type="text" name="user" value="<?php echo $user; ?>"/><br/>
+		<input type="text" placeholder="Enter Customer Name" name="user" value="<?php echo $user; ?>"/><br/>
 	</div>
 	<div class="input-group">
-		<label><strong>Staff Name: *</strong></label>  <input type="text" name="data" value="<?php echo $data; ?>"/><br/>
+	 <input type="text" placeholder="Enter Staff Name" name="data" value="<?php echo $data; ?>"/><br/>
 	</div>
 	<div class="input-group">
-		<label><strong>Location of Work: *</strong></label> <input type="text" name="location_of_work" value="<?php echo $location_of_work; ?>"/><br/>
+		<input type="text" placeholder="Enter Location of Work" name="location_of_work" value="<?php echo $location_of_work; ?>"/><br/>
 	</div>
 	<div class="input-group">
-		<label><strong>Type of Work: *</strong></label> <input type="text" name="type_of_work" value="<?php echo $type_of_work; ?>"/><br/>
+		<input type="text" placeholder="Enter Type of Work" name="type_of_work" value="<?php echo $type_of_work; ?>"/><br/>
 	</div>
 	<div class="input-group">
-		<label><strong>Salary: *</strong></label> <input type="text" name="salary" value="<?php echo $salary; ?>"/><br/>
+		<input type="text" placeholder="Enter Salary" name="salary" value="<?php echo $salary; ?>"/><br/>
 	</div>
 	<div class="input-group">
-		<label><strong>Date: *</strong></label> <input type="text" name="date" value="<?php echo $date; ?>"/><br>
+		<input type="text" placeholder="<?php echo $date; ?>" name="date" value="<?php echo $date; ?>"/><br>
 	</div>
+	
 	<div class="input-group">
-		<label><strong>Status: *</strong></label> <input type="text" name="status" value="<?php echo $status; ?>"/><br/>
-	</div>
-	<p><strong>* Required</strong></p>
+			<label>Status: *</label>
+			<select name="status"  value="<?php echo $status; ?>" >
+				<option value="pending">Pending</option>
+				<option value="Complete">Complete</option>
+				<option value="Unavailable">Unavailable</option>
+			</select>
+		</div>
 	<div class="input-group">
-		<button type="submit" class="btn" name="update_btn" value="Submit">Submit</button>
+		<input  type="submit" class="btn" name="update_btn" value="Submit">
 	</div>
 
 </div>

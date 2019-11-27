@@ -3,51 +3,45 @@
 <html>
 <head>
 	<title>Registration system PHP and MySQL - Create user</title>
-	<link rel="stylesheet" type="text/css" href="../style.css">
-	<style>
-		.header {
-			background: #003366;
-		}
-		button[name=register_btn] {
-			background: #003366;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="../styletest.css">
+	
 </head>
 <body>
-	<div class="header">
-		<h2>Admin - create user</h2>
-	</div>
+<style>
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+<ul>
+  <li><a href="/admin/home.php">Home</a></li>
+  <li><a href="view.php">Staff Request Management</a></li>
+  <li><a href="create_user.php">Create User</a></li>
+  <li style="float:right"><a class="active" href="home.php?logout='1'">LogOut</a></li>
+</ul>
+
 	
 	<form method="post" action="create_user.php">
-
+		<h2>Admin - create user</h2>
 		<?php echo display_error(); ?>
 
 		<div class="input-group">
-			<label>Username</label>
-			<input type="text" name="username" value="<?php echo $username; ?>">
+			<input type="text" placeholder="Enter Username" name="username" value="<?php echo $username; ?>">
 		</div>
 		<div class="input-group">
-			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $email; ?>">
+			<input type="email" placeholder="Enter Email" name="email" value="<?php echo $email; ?>">
 		</div>
 		<div class="input-group">
-			<label>User type</label>
-			<select name="user_type" id="user_type" >
-				<option value=""></option>
-				<option value="admin">Admin</option>
-				<option value="user">User</option>
-			</select>
+			<input type="text" placeholder="Enter UserType" name="user_type">
 		</div>
 		<div class="input-group">
-			<label>Password</label>
-			<input type="password" name="password_1">
+			<input type="password" placeholder="Enter Password" name="password_1">
 		</div>
 		<div class="input-group">
-			<label>Confirm password</label>
-			<input type="password" name="password_2">
+			<input type="password" placeholder="Confirm Password" name="password_2">
 		</div>
-		<div class="input-group">
-			<button type="submit" class="btn" name="register_btn"> + Create user</button>
+		<div class="input-group">			
+			<input type="submit" value="Create User" name="register_btn">
 		</div>
 	</form>
 </body>

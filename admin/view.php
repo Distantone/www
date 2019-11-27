@@ -12,12 +12,45 @@
 <head>
 <meta charset="utf-8">
 <title>View Requests</title>
-<link rel="stylesheet" type="text/css" href="../style2.css">
+<link rel="stylesheet" type="text/css" href="../styletest.css">
 </head>
 <body>
-	<div class="header">
-		<h2>View Staff Requests</h2>
-	</div>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+<ul>
+  <li><a href="/admin/home.php">Home</a></li>
+  <li><a href="view.php">Staff Request Management</a></li>
+  <li><a href="create_user.php">Create User</a></li>
+  <li style="float:right"><a class="active" href="home.php?logout='1'">LogOut</a></li>
+</ul>
+	
 <style>
 table {
   font-family: arial, sans-serif;
@@ -31,13 +64,11 @@ td, td {
   padding: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
+
 </style>
 
 <form method="post" action="">
-
+<h2>View Staff Requests</h2>
 <?php
 // get results from database
 

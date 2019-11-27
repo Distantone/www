@@ -12,12 +12,13 @@
 <head>
 <meta charset="utf-8">
 <title>Staffing Reference Case</title>
-<link rel="stylesheet" type="text/css" href="style2.css">
+<link rel="stylesheet" type="text/css" href="styletest.css">
 <style>
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  
 }
 
 td, th {
@@ -33,6 +34,41 @@ tr:nth-child(even) {
 
 </head>
 <body>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+<ul>
+  <li><a href="index.php">Home</a></li>
+  <li><a href="staff_request.php">Request Staff</a></li>
+  <li><a href="Search_staff_request.php">Search Staff Requests</a></li>
+  <li style="float:right"><a class="active" href="index.php?logout='1'">LogOut</a></li>
+</ul>
 <form method="post" action="">
 
 

@@ -7,6 +7,7 @@
 
 	// variable declaration
 	$username = "";
+	$name = "";
 	$email    = "";
 	$experience    = "";
 	$education    = "";
@@ -34,11 +35,18 @@
 	if (isset($_POST['update_btn'])) {
 		updatereference();
 	}
+	if (isset($_POST['reg_btn'])) {
+		header("location: register.php");
+	}
+	if (isset($_POST['log_btn'])) {
+		header("location: login.php");
+	}
 	
 	
 	
 	function lookupnumber(){
 		global $db, $errors;
+		//define reference number
 		$refernce_number    =  e($_POST['refnumber']);
 		
 		if (empty($refernce_number)) { 
@@ -56,12 +64,29 @@
 				array_push($errors, "Incorrect Reference number");
 			}
 		}
-
 	}
+
+	function lookuppic(){
+		global $db, $errors;
+		//define variables
+		$username = $_SESSION['user']['username'];
+		$pic = "";
+		
+			if (count($errors) == 0) {
+				$query = "SELECT * FROM staff_info WHERE username='$username'";
+				$results = mysqli_query($db, $query);
+					while ($row = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
+						$pic = $row['profile_file_name'];
+						return $pic;
+					}
+
+			}
+		}
+		
 	function updatereference(){
 		global $db, $errors;
 		
-
+		//define variables
 		$reference_number = $_GET['reference_number'];
 		$user = e($_POST['user']);
 		$data = e($_POST['data']);
@@ -86,7 +111,7 @@
 	if (isset($_POST['login_btn'])) {
 		login();
 	}
-
+	//logout function
 	if (isset($_GET['logout'])) {
 		session_destroy();
 		unset($_SESSION['user']);
@@ -150,37 +175,40 @@
 	function staffInformationRegister(){
 		global $db, $errors;
 
-		// receive all input values from the form
-		$username   	 =  e($_POST['username']);
+		//declare variables and grab input
+		$username = $_SESSION['user']['username'];
+		$name   	 =  e($_POST['name']);
 		$email      	 =  e($_POST['email']);
 		$experience		=  e($_POST['experience']);
 		$education		=  e($_POST['education']);
 		$salary			=  e($_POST['salary']);
 		$location		=  e($_POST['location']);
+		$statusMsg = '';
 		
+		//resume upload definitions
+		$resume_file_name = rand(1000,100000)."-".$_FILES['file']['name'];
+		$file_loc = $_FILES['file']['tmp_name'];
+		$file_size = $_FILES['file']['size'];
+		$file_type = $_FILES['file']['type'];
+		$folder="../Uploads/resumes/";
+		move_uploaded_file($file_loc,$folder.$resume_file_name);
+		$Rname = "$resume_file_name";
 		
+		//profile picture upload definitions
+		$profile_file_name = rand(1000,100000)."-".$_FILES['profile']['name'];
+		$file_loc = $_FILES['profile']['tmp_name'];
+		$file_size = $_FILES['profile']['size'];
+		$file_type = $_FILES['profile']['type'];
+		$folder="../Uploads/profile/";
+		move_uploaded_file($file_loc,$folder.$profile_file_name);
+		$Pname = "$profile_file_name";
 		
-		//grab resume information
-		$filename= $_FILES['file']['name'];
-		$tmp_name= $_FILES['file']['tmp_name'];
-		$submitbutton= $_POST['staffinformation_btn'];
-		$position= strpos($filename, "."); 
-		$fileextension= substr($filename, $position + 1);
-		$fileextension= strtolower($fileextension);
-		$description= $_POST['description_entered'];
-		if (isset($filename)) {
-		$path= 'Uploads/files/';
-			if (!empty($filename)){
-				if (move_uploaded_file($tmp_name, $path.$filename)) {
-				echo 'Uploaded!';
-				}
-			}
-		}
 		
 		
 		
 		// form validation: ensure that the form is correctly filled
-		if (empty($username)) { 
+		
+		if (empty($name)) { 
 			array_push($errors, "Username is required"); 
 		}
 		if (empty($email)) { 
@@ -201,8 +229,7 @@
 		
 		
 		
-		$query = "INSERT INTO staff_info (description, filename)
-		VALUES ('$description', '$name')";
+		
 		
 		//modification section
 		if (count($errors) == 0) {
@@ -211,26 +238,26 @@
 
 			if (mysqli_num_rows($results) == 1) {
 			unset($query);
-				$query = "UPDATE staff_info SET username= '$username', email= '$email', experience= '$experience', education= '$education', salary= '$salary', 
-				location= '$location', description= '$description', filename= '$filename' WHERE username= '$username'";
+				$query = "UPDATE staff_info SET username= '$username', name = '$name', email= '$email', experience= '$experience', education= '$education', salary= '$salary', 
+				location= '$location', resume_file_name= '$Rname',profile_file_name = '$Pname' WHERE username= '$username'";
 				mysqli_query($db, $query);
 			}else {
 
 				// register user information if none present and there are no errors in the form
 				if (count($errors) == 0) {
 			
-
+					
 					if (isset($_POST['user_type'])) {
 						$user_type = e($_POST['user_type']);
-						$query = "INSERT INTO staff_info (username, email, experience, education, salary, location, description, filename) 
-								VALUES('$username', '$email', '$experience', '$education', '$salary', '$location','$description','$filename')";
+						$query = "INSERT INTO staff_info (username, name, email, experience, education, salary, location,resume_file_name,profile_file_name) 
+								VALUES('$username', '$name', '$email', '$experience', '$education', '$salary', '$location','$Rname','$Pname')";
 						mysqli_query($db, $query);
 						$_SESSION['success']  = "New user successfully created!!";
 						
 						header('location: home.php');
 					}else{
-						$query = "INSERT INTO staff_info (username, email, experience, education, salary, location,description, filename) 
-								VALUES('$username', '$email', '$experience', '$education', '$salary', '$location','$description','$filename')";
+						$query = "INSERT INTO staff_info (username, name, email, experience, education, salary, location,resume_file_name,profile_file_name) 
+								VALUES('$username','$name', '$email', '$experience', '$education', '$salary', '$location','$Rname','$Pname')";
 						mysqli_query($db, $query);
 					// get id of the created user
 						$logged_in_user_id = mysqli_insert_id($db);
@@ -250,6 +277,15 @@
 		$typework		=  e($_POST['typework']);
 		$sal		=  e($_POST['sal']);
 		
+		//email variable declarations
+		$to = $_SESSION['user']['email'];
+		$subject = "";
+		$message = "";
+		$headers = "";
+		$parameter = "";
+		
+		
+		
 		$date = time();
 		// form validation: ensure that the form is correctly filled
 		if (empty($_POST['checked'])) { 
@@ -267,9 +303,9 @@
 		}else{
 		
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-				//debugging echo 'You have chosen:';
+				//echo 'You have chosen:';
 				foreach ($_POST['checked'] as $value) {
-				//debugging echo " $value, ";
+				//echo " $value, ";
 				}
 
 					//define logged in user
@@ -288,7 +324,16 @@
 									VALUES('$uRefNo','$logged_in_user','$value','$locate','$typework','$sal')";
 							mysqli_query($db, $query);
 							echo '
-							<th class="text-left">'.'Your Reference Number for ' .$value . ' is ' . $uRefNo . '<br>' . '</th>';
+							<div>
+							<th class="text-left">'.'Your Reference Number for ' .$value . ' is ' . $uRefNo . '<br>' . '</th>' . '</div>';
+							header('location: submittedRequest.php');
+							
+							
+							$subject = "Thank you for Submitting a Staff Request!";
+							$message = "Your Reference Number for" .$value . " is " . $uRefNo ;
+							$headers = "";
+							$parameter = "";
+							mail(to, subject, message, headers, parameters);
 						}
 						//Debugging  $_SESSION['success']  = "lets see....";
 					}else {
