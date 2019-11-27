@@ -65,6 +65,9 @@
 		<div class="input-group">
 			<input type="text" placeholder="Enter Location" name="location" value="<?php echo $location; ?>">
 		</div>
+		<div class="input-group">
+			<input type="text" placeholder="Enter Availability" name="available" value="<?php echo $available; ?>">
+		</div>
 		<div>
 		Select Resume to Upload:
 			<input type="file" name="file" />

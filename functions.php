@@ -14,6 +14,7 @@
 	$salary    = "";
 	$location    = "";
 	$errors   = array(); 
+	$available = "";
 	$ref_number = "";
 
 	// call the register() function if register_btn is clicked
@@ -183,6 +184,7 @@
 		$education		=  e($_POST['education']);
 		$salary			=  e($_POST['salary']);
 		$location		=  e($_POST['location']);
+		$available		=  e($_POST['available']);
 		$statusMsg = '';
 		
 		//resume upload definitions
@@ -226,6 +228,10 @@
 		if (empty($location)) { 
 			array_push($errors, "location is required"); 
 		}
+		if (empty($available)) { 
+			array_push($errors, "availability is required"); 
+		}
+		
 		
 		
 		
@@ -239,7 +245,7 @@
 			if (mysqli_num_rows($results) == 1) {
 			unset($query);
 				$query = "UPDATE staff_info SET username= '$username', name = '$name', email= '$email', experience= '$experience', education= '$education', salary= '$salary', 
-				location= '$location', resume_file_name= '$Rname',profile_file_name = '$Pname' WHERE username= '$username'";
+				location= '$location', availability= '$available', resume_file_name= '$Rname',profile_file_name = '$Pname' WHERE username= '$username'";
 				mysqli_query($db, $query);
 			}else {
 
@@ -249,15 +255,15 @@
 					
 					if (isset($_POST['user_type'])) {
 						$user_type = e($_POST['user_type']);
-						$query = "INSERT INTO staff_info (username, name, email, experience, education, salary, location,resume_file_name,profile_file_name) 
-								VALUES('$username', '$name', '$email', '$experience', '$education', '$salary', '$location','$Rname','$Pname')";
+						$query = "INSERT INTO staff_info (username, name, email, experience, education, salary, location, availability, resume_file_name,profile_file_name) 
+								VALUES('$username', '$name', '$email', '$experience', '$education', '$salary', '$location', '$available','$Rname','$Pname')";
 						mysqli_query($db, $query);
 						$_SESSION['success']  = "New user successfully created!!";
 						
 						header('location: home.php');
 					}else{
-						$query = "INSERT INTO staff_info (username, name, email, experience, education, salary, location,resume_file_name,profile_file_name) 
-								VALUES('$username','$name', '$email', '$experience', '$education', '$salary', '$location','$Rname','$Pname')";
+						$query = "INSERT INTO staff_info (username, name, email, experience, education, salary, location, availability, resume_file_name,profile_file_name) 
+								VALUES('$username','$name', '$email', '$experience', '$education', '$salary', '$location', '$available', '$Rname','$Pname')";
 						mysqli_query($db, $query);
 					// get id of the created user
 						$logged_in_user_id = mysqli_insert_id($db);
