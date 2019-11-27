@@ -10,7 +10,7 @@
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style3.css">
 </head>
 <body>
 	<div class="header">
@@ -30,7 +30,8 @@
 		<?php endif ?>
 		<!-- logged in user information -->
 		<div class="profile_info">
-
+		
+		<img src="images/user_profile.png"  >
 
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
@@ -41,6 +42,7 @@
 						<br>
 						<a href="index.php?logout='1'" style="color: red;">logout</a>
 						&nbsp; <a href="staff_request.php"> +Request Staff</a>
+						&nbsp; <a href="Search_staff_request.php"> +Search Staff Requests</a>
 					</small>
 
 				<?php endif ?>

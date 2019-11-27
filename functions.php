@@ -12,6 +12,7 @@
 	$salary    = "";
 	$location    = "";
 	$errors   = array(); 
+	$ref_number = "";
 
 	// call the register() function if register_btn is clicked
 	if (isset($_POST['register_btn'])) {
@@ -23,12 +24,60 @@
 	if (isset($_POST['staffpopulate_btn'])) {
 		getUsers();
 	}
-	
 	if (isset($_POST['selection_btn'])) {
 		submitselection();
 	}
+	if (isset($_POST['refernce_btn'])) {
+		lookupnumber();
+	}
 	
-	
+	function lookupnumber(){
+		global $db, $errors;
+		$refernce_number    =  e($_POST['refnumber']);
+		
+		if (empty($refernce_number)) { 
+			array_push($errors, "Reference number is required"); 
+		}
+		
+		
+		
+		if (count($errors) == 0) {
+
+			$query = "SELECT * FROM staff_requests WHERE reference_number='$refernce_number' LIMIT 1";
+			$results = mysqli_query($db, $query);
+
+			if (mysqli_num_rows($results) == 1) { // reference number found
+				
+				//storing $results into $ref
+				$ref = mysqli_fetch_assoc($results);
+				
+				//debug the array
+				//print_r($ref);
+
+				//debugging
+				$name = array_column($ref, 'data');
+				print_r($name);
+				//$data_from_ref = implode(" ",$ref);
+				//echo array_key_exists(0, $ref) == false;
+				//echo $ref[0];
+				
+				
+					//header('location: staff/home.php');
+				
+			}else {
+				array_push($errors, "Incorrect Reference number");
+			}
+		}
+			
+			
+		
+
+			
+			
+			
+			
+		
+	}
 	
 
 	// call the login() function if register_btn is clicked
@@ -94,6 +143,14 @@
 
 	}
 	
+	/*
+	$brand = '#ref';
+$cur_date = date('d').date('m').date('y');
+$invoice = $brand.$cur_date;
+$customer_id = rand(00000 , 99999);
+$uRefNo = $invoice.'-'.$customer_id;
+echo $uRefNo;
+	*/
 	//staff information registration
 	function staffInformationRegister(){
 		global $db, $errors;
@@ -155,19 +212,60 @@
 
 	}
 	//submits customer selection of staff
-	function submitselection($data){	
-	$username =$_SESSION['user'];	
-		if (count($errors) == 0) {
-			
-				$data = e($_POST['data']);
-				$query = "INSERT INTO staff_request (username, data) 
-						  VALUES('$username', '$data')";
-				mysqli_query($db, $query);
-				$_SESSION['success']  = "New user successfully created!!";
-				header('location: home.php');
-			
+	function submitselection(){	
+	//define variables
+		$locate		=  e($_POST['location']);
+		$typework		=  e($_POST['typework']);
+		$sal		=  e($_POST['sal']);
+		
 
+		// form validation: ensure that the form is correctly filled
+		if (empty($locate)) { 
+			array_push($errors, "Location of work is required"); 
+		}
+		if (empty($typework)) { 
+			array_push($errors, "Type of work is required"); 
+		}
+		if (empty($sal)) { 
+			array_push($errors, "Salary is required"); 
+		}
+		
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	//debugging echo 'You have chosen:';
+	foreach ($_POST['checked'] as $value) {
+		//debugging  echo " $value, ";
+		
+	}
+}
+	global $db, $errors;
+	//define logged in user
+	$logged_in_user = $_SESSION['user']['username'];
+	
+		//error checking
+		if (count($errors) == 0) {
+			//rolling thru each selected
+			foreach ($_POST['checked'] as $value) {
+				//Debugging echo $_SESSION['user']['username'];
+				
+				$query = "INSERT INTO staff_requests (user, data, location_of_work, type_of_work, salary) 
+						  VALUES('$logged_in_user','$value','$locate','$typework','$sal')";
+				mysqli_query($db, $query);
+				
+				
+			}
+		//header('location: submit.php');
+		//Debugging  $_SESSION['success']  = "lets see....";
 		}		
+	}
+	
+	function getUserByRefNum($ref){
+		global $db;
+		$query = "SELECT * FROM staff_requests WHERE reference_number=" . $ref;
+		$result = mysqli_query($db, $query);
+		
+		$user = $result;
+		return $user;
+		echo $user;
 	}
 	// return user array from their id
 	function getUserById($id){

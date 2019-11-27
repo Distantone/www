@@ -6,6 +6,13 @@ body {
 	font-size: 120%;
 	background: #F8F8FF;
 }
+table {
+  width: 100%;
+}
+
+th {
+  height: 50px;
+}
 
 .header {
 	width: 100%;

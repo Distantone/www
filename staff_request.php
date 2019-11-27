@@ -1,4 +1,12 @@
-<?php include('functions.php') ?>
+<?php 
+	include('functions.php');
+
+	if (!isLoggedIn()) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: ../login.php');
+	}
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -10,49 +18,115 @@
 	<div class="header">
 		<h2>Staff Recruitment</h2>
 	</div>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 
 <form method="post" action="">
+
+
+ <table class="table-fill">
+            <thead>
+                <tr>
+					<th class="text-left"> </th>
+                    <th class="text-left">Name</th>
+                    <th class="text-left">Experience</th>
+                    <th class="text-left">Education</th>
+					<th class="text-left">Salary</th>
+					<th class="text-left">Location</th>
+                </tr>
+            </thead>
+
 <?php 
-//debuging
-//print_r($_POST);
+//defining variables
+$r = getUsers();
+$bg = '#eeeeee'; 
+$locate = " ";
+$typework = " ";
+$sal = " ";
+$ary = array();
+//pulling data from database
 
-$results = getUsers();
-while($line = mysqli_fetch_array($results)) {
-    $name = $line['username'];
-    $email = $line['email'];
-    $experience = $line['experience'];
-	$education = $line['education'];
-	$salary = $line['salary'];
-	$location = $line['location'];
-	//$data = array();
-    echo '<div id=box-1 class=box>';
-	//echo "<input type='checkbox' value='$name'>";
-   // echo "<gt_descA>$name</gt_descA> <gt_descC>$email</gt_descC> <gt_descC>$experience</gt_descC> <gt_descC>$education</gt_descC> <gt_descC>$salary</gt_descC> <gt_descC>$location</gt_descC>";
-    
-	echo "<table>
-	<tr>
-	
-        <td><input type='checkbox' value='data'> $name  $email 	$experience 	$education 	$salary $location</td>
-    </tr>
-	</table>";
-    echo "<span class='caption simple-caption'>";
-    echo '<div style=clear:both;></div>';
-    echo '</span>';
-    echo '</div>';
-	
-	if(isset($_POST['data']) )
-{
-	$data = $_POST['data'];
-	
-}
-}
+while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+//$ary = $row['username'];	
 
+	
+	
+   
+  // echo '<tr bgcolor="' . $bg . '">
+   //<td align="left" width="(100/5)%">
+   //<input type="checkbox" name="checked[]" value="' . $row['username'] . '" id="' . $row['username'] . '"  /> </td>
+//<td align="left">' . $row['username'] ."	&nbsp" ." <b>Experience</b>( " . $row['experience']. " )"  ."	&nbsp"." <b>Education</b>( " . $row['education'] ." )"  ."	&nbsp"  ."	&nbsp". " <b>Salary</b>( ". $row['salary'] . " )"  ."	&nbsp" ."	&nbsp" . " <b>Location</b>( " . $row['location']. " )" . '</td>
+   //</tr>';
+
+//debugging   echo $_SESSION['user']['username']
+//print_r ($ary);
 ?>
 
 
-</form>
+ <tr>			<td>
+				<?php echo'<input type="checkbox" name="checked[]" value="' . $row['username'] . '" id="' . $row['username'] . '"  /> </td> '  ?>
+				</td>
+               <td>
+                   <?php    echo $row['username']; ?>
+               </td>
+               <td>
+                   <?php     echo $row['experience'];?>
+               </td>
+                <td>
+                   <?php     echo $row['education']; ?>
+               </td>    
+			   <td>
+                   <?php     echo $row['salary']; ?>
+               </td>  
+			   <td>
+                   <?php     echo $row['location']; ?>
+               </td>  
+    </tr>
+	<?php
+    }
+?>
+
+
+	
+
+
+</table>
 <div class="input-group">
-			<button type="submit" class="btn" name="selection_btn">Submit Selection</button>
+
+			<label>Location of Work</label>
+			<input type="text" name="location" value="<?php echo $locate; ?>">
 		</div>
+		<div class="input-group">
+			<label>Type of Work</label>
+			<input type="text" name="typework" value="<?php echo $typework; ?>">
+		</div>
+		<div class="input-group">
+			<label>Salary</label>
+			<input type="text" name="sal" value="<?php echo $sal; ?>">
+		</div>		
+<input type="submit"  class="btn" name="selection_btn" value="submit" />
+</form>
+
+
+
+
+
+
+
  
 </html>
