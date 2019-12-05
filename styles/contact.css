@@ -1,0 +1,156 @@
+/*
+TPS StyleSheet 
+Author:  Stephen Aubert
+Changelog: https://github.com/Distantone/www
+*/
+style
+	
+a:link {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+  }
+
+footer, header, nav, section
+{
+	display: block;
+}
+*
+{
+	margin: 0;
+	padding: 0;
+}
+html {background-color:black; }
+h1 {padding: 25px; }
+		
+header 
+{ 	
+	width: 2200px;
+	height: 125px;
+	border-bottom: 3px solid blue;
+	padding 05px; 
+	font-family: Comic Sans MS;
+	background-color:black;
+	font-size: 20px;
+	
+
+
+}
+nav
+{
+	border-right: 3px solid blue;
+	width: 250px;
+	height: 500px;
+	margin-left: 30px;
+	font-size: 20px;
+	float: left;
+	font-family: Comic Sans MS;
+	align: center;
+	text-align: left;
+	background-color:black;
+}
+
+
+		
+body
+{	height: 900px;
+	width; 962px;
+	background-color: black;
+	text-align: left;
+	font-family:Comic Sans MS;
+	border: 3px solid blue;
+
+	
+	
+	
+}
+	img
+{
+	border-radius: 35px;
+}		
+section
+	{
+	width: 600px;
+	height: 475px;
+	margin-left: 325px;
+	background-color:black;
+	border-radius: 40px / 50px;
+	padding:10px;
+	text-align: center;
+  	border: 3px solid blue;
+	font-family:Comic Sans MS;
+	background: gray;	
+	margin-top: 25px;
+	margin-bottom:20px;
+	
+	}	
+
+
+
+footer
+{
+	border-top: 3px solid blue;
+	padding: 20px;
+	font-family: Comic Sans MS;
+	background-color:black;
+}
+.car
+{
+	margin-left: 960px;
+	margin-top: 96px;
+
+	font-family: Comic Sans MS;
+
+}
+.car2
+{
+	margin-left:150px;
+	margin-top: 12px;
+	float:left;
+
+}
+
+
+.list
+{
+	text-align: left;
+	margin-left: 35px;
+}
+.feed
+{
+	font-size: 20px;
+	
+	margin-bottom: 20px;
+}
+
+.date
+{
+	text-align:center; 
+	background-color:lightblue;
+        color:purple; 
+	font-size:20pt; font-family: sans-serif;
+        border-bottom: 3px solid blue;
+}
+#big 
+{
+	text-align:center;
+	margin-right: 400px;
+}
+
+	margin-right: 400px;
+}

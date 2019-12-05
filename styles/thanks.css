@@ -1,0 +1,169 @@
+/*
+TPS StyleSheet 
+Author:  Stephen Aubert
+Changelog: https://github.com/Distantone/www
+*/
+style 
+
+a:link {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+  }
+footer, header, nav, section
+{
+	display: block;
+}
+*
+{
+	margin: 0;
+	padding: 0;
+}
+html {background-color:black; }
+h1 {padding: 25px; }
+		
+header 
+{ 	
+	width: 1750px;
+	height: 125px;
+	border-bottom: 3px solid blue;
+	padding 05px; 
+	font-family: Algerian;
+	background-color:black;
+	font-size: 20px;
+	text-align: left;
+
+
+
+}
+nav
+{
+	border-right: 3px solid blue;
+	width: 250px;
+	height: 500px;
+	margin-left: 30px;
+	font-size: 20px;
+	float: left;
+	font-family: Comic Sans MS;
+	align: center;
+	text-align: left;
+	background-color:black;
+}
+
+
+		
+body
+{	height: 850px;
+	width; 962px;
+	background-color: black;
+	text-align: left;
+	font-family:Comic Sans MS;
+	border: 3px solid blue;
+
+	
+				
+	
+}
+section
+	{
+	width: 600px;
+	height: 475px;
+	margin-left: 325px;
+	background-color:black;
+	
+	padding:10px;
+	text-align: center;
+  	border: 3px solid blue;
+	font-family:Comic Sans MS;
+	background: gray;	
+	margin-top: 0px;
+	border-radius: 40px / 50px;
+	
+	
+	}	
+
+
+
+footer
+{
+	border-top: 3px solid blue;
+	padding: 20px;
+	font-family: Comic Sans MS;
+	background-color:black;
+}
+.car
+{
+	margin-left: 900px;
+	margin-top: 115px;
+	border-radius: 40px / 50px;
+	font-family: Comic Sans MS;
+
+}
+
+
+.cart
+{
+	margin-right: 100px;
+	margin-top:1px;
+	font-family: Comic Sans MS;
+	font-size: 15px;
+	text-align: right;
+	
+}
+.sbc_intake
+{
+	text-align: left;
+}
+.bbc_intake
+{
+	text-align: left;
+}
+.list
+{
+	text-align: left;
+	margin-left: 35px;
+}
+.sbc_int
+{
+	margin-left: 550px;
+	margin-top: 80px;
+}
+.bbc_int
+{
+	margin-left: 550px;
+	margin-top: 30px;
+}
+.flags
+{
+	margin-left: 11px;
+	
+	margin-bottom:30px;
+}
+.date
+{
+	text-align:center; 
+	background-color:lightblue;
+        color:purple; 
+	font-size:20pt; font-family: sans-serif;
+        border-bottom: 3px solid blue;
+}
+#big 
+{
+	text-align:center;
+	margin-right: 400px;
+}

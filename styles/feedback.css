@@ -1,0 +1,79 @@
+/*
+TPS StyleSheet 
+Author:  Stephen Aubert
+Changelog: https://github.com/Distantone/www
+*/
+style
+
+
+{
+	display: block;
+}
+*
+{
+	margin: 0;
+	padding: 0;
+	
+}
+	html {background-color: black; }
+	h1 {padding: 25px; }
+		
+body 
+{
+	
+	background-color: lightgrey;	
+	border: 3px solid blue;
+	margin: 20px auto;
+	width: 550px;
+}
+
+
+label
+{
+	float: middle;
+	width: 5em;
+	text-align: right;
+	padding: 20px;
+}
+input
+{
+	margin-left: 1em;
+	margin-bottom: .5em;
+	
+}
+
+#button
+{
+	margin-left: 10em;
+}
+#button, #reset
+{
+	width: 7em;
+	background-color: silver;
+	box-shadow: 2px 2px 0 navy;
+
+}
+
+
+select
+{
+	margin-left: 20px;
+}
+fieldset
+{
+	margin-left: 30px;
+	margin-right: 20px;
+}
+.home
+{
+	text-align: center;
+	font-size: 25px;
+}
+#poor
+{
+margin-left:50px;
+}
+p
+{
+margin-left: 20px;
+}

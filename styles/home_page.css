@@ -1,0 +1,190 @@
+/*
+TPS StyleSheet 
+Author:  Stephen Aubert
+Changelog: https://github.com/Distantone/www
+*/
+style
+	
+a:link {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+  }
+
+footer, header, nav, section
+{
+	display: block;
+}
+*
+{
+	margin: 0;
+	padding: 0;
+}
+html {background: linear-gradient(to Bottom right, #14468c, #148c58) fixed; }
+h1 {padding: 25px; }
+		
+header 
+{ 	
+	width: 2200px;
+	height: 125px;
+	border-bottom: 3px solid;
+	padding 05px; 
+	font-family: 'Roboto', sans-serif;
+	
+	font-size: 20px;
+	
+
+
+}
+nav
+{
+	border-right: 3px solid;
+	width: 250px;
+	height: 500px;
+	margin-left: 30px;
+	font-size: 20px;
+	float: left;
+	font-family: 'Roboto', sans-serif;
+	align: center;
+	text-align: left;
+
+}
+
+
+		
+body
+{	height: 900px;
+	width; 962px;
+
+	text-align: left;
+	font-family: 'Roboto', sans-serif;
+	border: 3px solid;
+
+	
+	
+	
+}
+	img
+{
+	border-radius: 35px;
+}		
+section
+	{
+	width: 600px;
+	height: 475px;
+	margin-left: 325px;
+
+	border-radius: 40px / 50px;
+	padding:10px;
+	text-align: center;
+  	border: 3px solid ;
+	font-family: 'Roboto', sans-serif;
+	
+	margin-top: 25px;
+	margin-bottom:20px;
+	
+	}	
+
+
+
+footer
+{
+	border-top: 3px solid ;
+	padding: 20px;
+	font-family: 'Roboto', sans-serif;
+	
+}
+.car
+{
+	margin-left: 960px;
+	margin-top: 96px;
+
+	font-family: 'Roboto', sans-serif;
+
+}
+.car2
+{
+	margin-left:150px;
+	margin-top: 12px;
+	float:left;
+
+}
+
+.cart
+{
+	margin-right: 0px;
+	margin-top:1px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 22px;
+	text-align: right;
+	
+}
+.sbc_intake
+{
+	text-align: left;
+}
+.bbc_intake
+{
+	text-align: left;
+}
+.list
+{
+	text-align: left;
+	margin-left: 35px;
+}
+.sbc_int
+{
+	margin-left: 550px;
+	margin-top: 80px;
+}
+.bbc_int
+{
+	margin-left: 550px;
+	margin-top: 30px;
+}
+.flags
+{
+	margin-right: 11px;	
+	margin-bottom:30px;
+image-align: right;
+}
+.tree
+{
+	margin-top: 20px;	
+	margin-left:40px;
+	
+}
+.feed
+{
+	font-size: 20px;
+	
+	margin-bottom: 20px;
+}
+.date
+{
+	text-align:center; 
+	background-color:lightblue;
+        color:purple; 
+	font-size:20pt; font-family: 'Roboto', sans-serif;
+        border-bottom: 3px solid;
+}
+#big 
+{
+	text-align:center;
+	margin-right: 400px;
+}
