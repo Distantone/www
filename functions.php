@@ -1,3 +1,8 @@
+<!--
+TPS Functions.php
+Author: Payden Boughton
+Changelog: https://github.com/Distantone/www
+-->
 <?php 
 	session_start();
 	
@@ -116,7 +121,7 @@
 	if (isset($_GET['logout'])) {
 		session_destroy();
 		unset($_SESSION['user']);
-		header("location: ../login.php");
+		header("location: ../index.php");
 	}
 
 	// REGISTER USER
@@ -339,7 +344,7 @@
 							$message = "Your Reference Number for" .$value . " is " . $uRefNo ;
 							$headers = "";
 							$parameter = "";
-							mail(to, subject, message, headers, parameters);
+							mail($to, $subject, $message, $headers, $parameters);
 						}
 						//Debugging  $_SESSION['success']  = "lets see....";
 					}else {
@@ -441,8 +446,8 @@
 				}else if($logged_in_user['user_type'] == 'user'){
 					$_SESSION['user'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
-
-					header('location: index.php');
+					
+					header('location: home.php');
 				}else if($logged_in_user['user_type'] == 'staff'){
 					$_SESSION['user'] = $logged_in_user;
 					$_SESSION['success']  = "You are now logged in";
@@ -454,6 +459,8 @@
 			}
 		}
 	}
+	
+	
 
 	function isLoggedIn()
 	{
