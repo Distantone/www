@@ -1,3 +1,9 @@
+<!--
+TPS staff Homepage
+Author: Payden Boughton
+Changelog: https://github.com/Distantone/www
+-->
+
 <?php 
 	include('../functions.php');
 

@@ -1,3 +1,8 @@
+<!--
+TPS Administrator Homepage
+Author: Payden Boughton
+Changelog: https://github.com/Distantone/www
+-->
 <?php 
 	include('../functions.php');
 
@@ -11,7 +16,7 @@
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../style3.css">
+	<link rel="stylesheet" type="text/css" href="../styletest.css">
 	<style>
 	.header {
 		background: #003366;

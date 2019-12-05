@@ -1,3 +1,9 @@
+<!--
+TPS create_user.php
+Author: Payden Boughton
+Changelog: https://github.com/Distantone/www
+-->
+
 <?php include('../functions.php') ?>
 <!DOCTYPE html>
 <html>
