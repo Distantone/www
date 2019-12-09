@@ -56,6 +56,7 @@ Changelog: https://github.com/Distantone/www
 					<th class="text-left">Salary</th>
 					<th class="text-left">Location</th>
 					<th class="text-left">Availability</th>
+					<th class="text-left">Resume</th>
                 </tr>
             </thead>
 
@@ -68,6 +69,7 @@ $typework = " ";
 $sal = " ";
 $ary = array();
 //pulling data from database
+
 
 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 
@@ -94,6 +96,9 @@ while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
                </td>  
 			   <td>
                    <?php     echo $row['availability']; ?>
+               </td> 
+			   <td>
+                  <?php echo" <a download href='\Uploads/resumes/{$row['resume_file_name']} '>Download<a/> "?>
                </td> 
     </tr>
 	<?php
