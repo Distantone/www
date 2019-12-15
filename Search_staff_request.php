@@ -17,7 +17,7 @@ Changelog: https://github.com/Distantone/www
 <head>
 <meta charset="utf-8">
 <title>Staffing Reference Case</title>
-<link rel="stylesheet" type="text/css" href="styletest.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <style>
 table {
   font-family: arial, sans-serif;
@@ -69,9 +69,7 @@ li a:hover:not(.active) {
 }
 </style>
 <ul>
-  <li><a href="index.php">Home</a></li>
-  <li><a href="staff_request.php">Request Staff</a></li>
-  <li><a href="Search_staff_request.php">Search Staff Requests</a></li>
+  <li><a href="home.php">Home</a></li>
   <li style="float:right"><a class="active" href="index.php?logout='1'">LogOut</a></li>
 </ul>
 <form method="post" action="">

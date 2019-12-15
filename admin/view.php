@@ -17,7 +17,7 @@ Changelog: https://github.com/Distantone/www
 <head>
 <meta charset="utf-8">
 <title>View Requests</title>
-<link rel="stylesheet" type="text/css" href="../styletest.css">
+<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
 <style>
@@ -51,8 +51,6 @@ li a:hover:not(.active) {
 </style>
 <ul>
   <li><a href="/admin/home.php">Home</a></li>
-  <li><a href="view.php">Staff Request Management</a></li>
-  <li><a href="create_user.php">Create User</a></li>
   <li style="float:right"><a class="active" href="home.php?logout='1'">LogOut</a></li>
 </ul>
 	

@@ -17,7 +17,7 @@ Changelog: https://github.com/Distantone/www
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../styletest.css">
+	<link rel="stylesheet" type="text/css" href="../style.css">
 	<style>
 	.header {
 		background: #003366;
@@ -58,13 +58,10 @@ li a:hover:not(.active) {
 }
 </style>
 <ul>
-  <li><a href="home.php">Home</a></li>
-  <li><a href="information.php">Update Information</a></li>
+  <li><a href="../index.php">Home</a></li>
   <li style="float:right"><a class="active" href="home.php?logout='1'">LogOut</a></li>
 </ul>
-	<div class="header">
-		<h2>Staff - Home Page</h2>
-	</div>
+	
 	<div class="content">
 		<!-- notification message -->
 		<?php if (isset($_SESSION['success'])) : ?>
@@ -86,17 +83,17 @@ li a:hover:not(.active) {
 
 		?>
 		<div class="profile_info">
-		<img src="<?php echo '../uploads/profile/'.$path;?>" />
+		
 
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
 					<strong><?php echo $_SESSION['user']['username']; ?></strong>
 
 					<small>
+					
 						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
 						<br>
-						<a href="home.php?logout='1'" style="color: red;">logout</a>
-						&nbsp; <a href="information.php"> + Update Information</a>
+						<input type="submit" value="Update Information"  onclick="window.location='information.php';">
 					</small>
 
 				<?php endif ?>

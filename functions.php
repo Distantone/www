@@ -41,6 +41,9 @@ Changelog: https://github.com/Distantone/www
 	if (isset($_POST['update_btn'])) {
 		updatereference();
 	}
+	if (isset($_POST['updateuser_btn'])) {
+		updateUser();
+	}
 	if (isset($_POST['reg_btn'])) {
 		header("location: register.php");
 	}
@@ -108,6 +111,24 @@ Changelog: https://github.com/Distantone/www
 			location_of_work='$location_of_work',type_of_work= '$type_of_work',salary='$salary',date='$date',status= '$status' WHERE reference_number= '$reference_number' ";
 			mysqli_query($db, $query);
 			header("location: /admin/view.php");
+		}
+
+	}
+	
+	function updateUser(){
+		global $db, $errors;
+		
+		//define variables
+		$username = $_GET['username'];
+		$email = e($_POST['email']);
+		$user_type = e($_POST['user_type']);
+
+	
+		if (count($errors) == 0) {
+			$query = "UPDATE users SET username= '$username', email='$email', user_type= '$user_type'
+			WHERE username= '$username' ";
+			mysqli_query($db, $query);
+			header("location: /admin/viewusers.php");
 		}
 
 	}

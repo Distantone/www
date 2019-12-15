@@ -16,13 +16,45 @@ Changelog: https://github.com/Distantone/www
 <html>
 <head>
 <meta charset="utf-8">
-<title>View Requests</title>
-<link rel="stylesheet" type="text/css" href="../style2.css">
+<title>View Users</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+<ul>
+  <li><a href="/admin/home.php">Home</a></li>
+  <li style="float:right"><a class="active" href="home.php?logout='1'">LogOut</a></li>
+</ul>
 </head>
 <body>
-	<div class="header">
-		<h2>View Staff Requests</h2>
-	</div>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+body { padding-top: 770px; }
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+
+	
 <style>
 table {
   font-family: arial, sans-serif;
@@ -36,13 +68,11 @@ td, td {
   padding: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
+
 </style>
 
 <form method="post" action="">
-
+<h2>View Users</h2>
 <?php
 // get results from database
 
@@ -55,8 +85,6 @@ echo "<tr>
 <td>User Name</td>
  <td>Email</td> 
  <td>User Type</td>
- <td>Resume</td>
- <td>Profile</td>
  <td> </td>
  <td> </td></tr>";
 
@@ -74,18 +102,18 @@ echo "<tr>";
 echo '<td>' . $row['username'] . '</td>';
 echo '<td>' . $row['email'] . '</td>';
 echo '<td>' . $row['user_type'] . '</td>';
-echo '<td>' . $row['resume'] . '</td>';
-echo '<td>' . $row['profile'] . '</td>';
 
-echo '<td><a href="edit.php?username=' . $row['username'] . '
+
+
+echo '<td><a href="edituser.php?username=' . $row['username'] . '
 & email=' . $row['email'] . '
 & user_type=' . $row['user_type'] . '
-& resume=' . $row['resume'] . '
-& profile=' . $row['profile'] . '
+& password=' . $row['password'] . '
+
 
 ">Edit</a></td>';
 
-echo '<td><a href="delete.php?username=' . $row['username'] . '">Delete</a></td>';
+echo '<td><a href="deleteuser.php?username=' . $row['username'] . '">Delete</a></td>';
 
 echo "</tr>";
 

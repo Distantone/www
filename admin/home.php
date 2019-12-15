@@ -16,7 +16,7 @@ Changelog: https://github.com/Distantone/www
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../styletest.css">
+	<link rel="stylesheet" type="text/css" href="../style.css">
 	<style>
 	.header {
 		background: #003366;
@@ -58,12 +58,9 @@ li a:hover:not(.active) {
 </style>
 <ul>
   <li><a href="/admin/home.php">Home</a></li>
-  <li><a href="view.php">Staff Request Management</a></li>
-  <li><a href="create_user.php">Create User</a></li>
   <li style="float:right"><a class="active" href="home.php?logout='1'">LogOut</a></li>
 </ul>
 	<div class="header">
-		<h2>Admin - Home Page</h2>
 	</div>
 	<div class="content">
 		<!-- notification message -->
@@ -80,7 +77,6 @@ li a:hover:not(.active) {
 
 		<!-- logged in user information -->
 		<div class="profile_info">
-			<img src="../images/user_profile.png"  >
 
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
@@ -88,11 +84,12 @@ li a:hover:not(.active) {
 
 					<small>
 						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
-						<br>
-						<a href="home.php?logout='1'" style="color: red;">logout</a>
-						&nbsp; <a href="create_user.php"> + add user</a>
-						&nbsp; <a href="staff_request.php"> + Request Staff</a>
-						&nbsp; <a href="view.php"> + View Staff Requests</a>
+						<br>	
+						<input type="submit" value="Create User"  onclick="window.location='create_user.php';">
+						<input type="submit" value="View/Edit User"  onclick="window.location='viewusers.php';">
+						<input type="submit" value="Search Staff Request"  onclick="window.location='Search_staff_request.php';">
+						<input type="submit" value="Staff Request"  onclick="window.location='../staff_request.php';">
+						<input type="submit" value="View/Edit Staff Requests"  onclick="window.location='view.php';">
 					</small>
 
 				<?php endif ?>

@@ -8,7 +8,7 @@ Changelog: https://github.com/Distantone/www
 <html>
 	<head>
 		<title>Staff Information</title>
-		<link rel="stylesheet" type="text/css" href="../styletest.css">
+		<link rel="stylesheet" type="text/css" href="../style.css">
 	</head>
 	<body>
 	<style>
@@ -42,7 +42,6 @@ Changelog: https://github.com/Distantone/www
 	</style>
 	<ul>
 		<li><a href="home.php">Home</a></li>
-		<li><a href="information.php">Update Information</a></li>
 		<li style="float:right"><a class="active" href="home.php?logout='1'">LogOut</a></li>
 	</ul>
 

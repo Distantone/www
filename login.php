@@ -8,7 +8,7 @@ Changelog: https://github.com/Distantone/www
 <html>
 	<head>
 		<title>Registration system PHP and MySQL</title>
-		<link rel="stylesheet" type="text/css" href="styletest.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 
 

@@ -17,7 +17,7 @@ Changelog: https://github.com/Distantone/www
 	<head>
 		<meta charset="utf-8">
 		<title>Staffing Request Form</title>
-			<link rel="stylesheet" type="text/css" href="styletest.css">
+			<link rel="stylesheet" type="text/css" href="style.css">
 	
 
 	</head>

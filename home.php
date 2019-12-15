@@ -15,7 +15,7 @@ Changelog: https://github.com/Distantone/www
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="styletest.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	
 </head>
 <body>
@@ -25,9 +25,7 @@ Changelog: https://github.com/Distantone/www
 }
 </style>
 <ul>
-  <li><a href="home.php">Home</a></li>
-  <li><a href="staff_request.php">Request Staff</a></li>
-  <li><a href="Search_staff_request.php">Search Staff Requests</a></li>
+  <li><a href="index.php">Home</a></li>
   <li style="float:right"><a class="active" href="index.php?logout='1'">LogOut</a></li>
 </ul>
 	<div class="header">
@@ -46,11 +44,7 @@ Changelog: https://github.com/Distantone/www
 			</div>
 		<?php endif ?>
 		<!-- logged in user information -->
-		<div class="profile_info">
-		
-		
-		<img src="images/user_profile.png"  >
-
+		<div class="profile_info"
 			<div>
 				<?php  if (isset($_SESSION['user'])) : ?>
 					<strong><?php echo $_SESSION['user']['username']; ?></strong>

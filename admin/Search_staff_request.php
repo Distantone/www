@@ -1,5 +1,5 @@
 <!--
-TPS Search_staff_request.php
+TPS Search Staff Request.php
 Author: Payden Boughton
 Changelog: https://github.com/Distantone/www
 -->
@@ -17,12 +17,13 @@ Changelog: https://github.com/Distantone/www
 <head>
 <meta charset="utf-8">
 <title>Staffing Reference Case</title>
-<link rel="stylesheet" type="text/css" href="style2.css">
+<link rel="stylesheet" type="text/css" href="../style.css">
 <style>
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  
 }
 
 td, th {
@@ -38,6 +39,39 @@ tr:nth-child(even) {
 
 </head>
 <body>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+<ul>
+  <li><a href="home.php">Home</a></li>
+  <li style="float:right"><a class="active" href="index.php?logout='1'">LogOut</a></li>
+</ul>
 <form method="post" action="">
 
 
@@ -46,66 +80,60 @@ tr:nth-child(even) {
 
 <div class="input-group">
 
-			
+			<label>Enter Reference Number</label>
+			<input type="text" name="refnumber" value="<?php echo $ref_number; ?>">
+		</div>
 		<table class="table-fill">
 		<thead>
                 <tr>
-					<th class="text-left"> </th>
-					<th class="text-left">Reference Number </th>
-                    <th class="text-left">Customer</th>
-                    <th class="text-left">Staff Member</th>
+					<th class="text-left">Name </th>
                     <th class="text-left">Location</th>
-					<th class="text-left">Type of Work</th>
-					<th class="text-left">Salary</th>
-					<th class="text-left">Date</th>
+                    <th class="text-left">Type of Work</th>
+                    <th class="text-left">Salary</th>
+					<th class="text-left">Date Ordered</th>
+					<th class="text-left">Status</th>
                 </tr>
             </thead>
 			<?php 
-//defining variables
-$r = getrequests();
-$bg = '#eeeeee'; 
-$locate = " ";
-$typework = " ";
-$sal = " ";
-$ary = array();
-//pulling data from database
-
-while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-//$ary = $row['username'];		
-?>
-
-<input type="text" name="refnumber" value="<?php    echo $row['reference_number']; ?>">
- <tr>			<td>
-				<?php echo'<input type="checkbox" name="checked[]" value="' . $row['reference_number'] . '" id="' . $row['reference_number'] . '"  /> </td> '  ?>
-				</td>
-               <td>
-                   <?php    echo $row['reference_number']; ?>
-               </td>
-               <td>
-                   <?php     echo $row['user'];?>
-               </td>
-                <td>
-                   <?php     echo $row['data']; ?>
-               </td>    
-			   <td>
-                   <?php     echo $row['location_of_work']; ?>
-               </td>  
-			   <td>
-                   <?php     echo $row['type_of_work']; ?>
-               </td>  
-			   <td>
-                   <?php     echo $row['salary']; ?>
-               </td> 
-			   <td>
-                   <?php     echo $row['date']; ?>
-               </td> 
-
+			//define variables
+			$data = " ";
+			$location_of_work = " ";
+			$type_of_work = " ";
+			$salary = " ";
+			$date = " ";
+			$status = " ";
+			if (count($errors) == 0) {
+			if (isset($_POST['refnumber'])){	
+			//reset variables to recieve data
+			unset($data);
+			unset($location_of_work);
+			unset($type_of_work);
+			unset($salary);
+			unset($date);
+			unset($status);
 			
+			
+			$ref = lookupnumber();
+			//extracting $ref array
+			extract($ref, EXTR_PREFIX_SAME, "wddx");
+			}
+			}else {
+				echo "INCORRECT REFERENCE NUMBER ENTERED";
+			}
+			?>
+			<thead>
+                <tr>
+					<th class="text-left"><?php echo $data ?>  </th>
+                    <th class="text-left"><?php echo $location_of_work; ?></th>
+                    <th class="text-left"><?php echo $type_of_work ?></th>
+                    <th class="text-left"><?php echo $salary ?></th>
+					<th class="text-left"><?php echo $date ?></th>
+					<th class="text-left"><?php echo $status ?></th>
+                </tr>
+            </thead>
 		</table>
 
-<?php
-    }
-?>
+
 <input type="submit" onClick = "this.style.visibility= 'hidden';" class="btn" name="refernce_btn" value="submit"  />
 </form>
 </body
