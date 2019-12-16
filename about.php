@@ -36,7 +36,7 @@ Changelog: https://github.com/Distantone/www
 				</a></div>
 		
 		
-			<div class= "car"><img src="./images/office1.jpg" width="650" height="500" alt="car" /></div>
+			<div class= "car"><img src="office1.jpg" width="650" height="500" alt="office1" /></div>
 				
 		</h1></header>
 		<br/>
